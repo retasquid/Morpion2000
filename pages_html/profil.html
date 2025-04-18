@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuration du profil</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .profile-preview {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+            overflow: hidden;
+            border: 2px solid #ddd;
+        }
+        
+        .profile-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            margin: 20px auto;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Configuration de votre profil</h1>
+    
+    <div class="profile-preview" id="preview">
+        <img src="/api/placeholder/150/150" alt="Photo de profil" id="profileImage" style="display: none;">
+        <span id="placeholder">Photo</span>
+    </div>
+    
+    <form id="profileForm">
+        <div class="form-group">
+            <label for="profilePhoto">Photo de profil:</label>
+            <input type="file" id="profilePhoto" accept="image/*">
+        </div>
+        
+        <div class="form-group">
+            <label for="userName">Nom d'utilisateur:</label>
+            <input type="text" id="userName" placeholder="Entrez votre nom">
+        </div>
+        
+        <button type="submit">Enregistrer le profil</button>
+    </form>
+    
+    <script>
+        document.getElementById('profilePhoto').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    const img = document.getElementById('profileImage');
+                    img.src = e.target.result;
+                    img.style.display = 'block';
+                    document.getElementById('placeholder').style.display = 'none';
+                }
+                
+                reader.readAsDataURL(file);
+            }
+        });
+        
+        document.getElementById('profileForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const userName = document.getElementById('userName').value;
+            const profileImg = document.getElementById('profileImage').src;
+            
+            // Ici, vous pourriez envoyer ces données à un serveur
+            // Pour cette démo, nous allons simplement afficher une alerte
+            alert('Profil enregistré !\nNom: ' + userName);
+            
+            // Si vous voulez stocker localement (pour démo seulement)
+            localStorage.setItem('userName', userName);
+            localStorage.setItem('profileImage', profileImg);
+        });
+    </script>
+</body>
+</html>
