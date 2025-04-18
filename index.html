@@ -1,24 +1,67 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 	<head>
-
 		<meta charset="utf-8"/>
 		<title>Morpion2000</title>
 		<link rel="stylesheet" href="../styles_css/style.css">
-	
+		<style>
+			body {
+				background-image: url("/cosmetics/font.jpg");
+				background-size: cover;
+				background-position: center;
+				background-repeat: no-repeat;
+				font-family: Arial, sans-serif;
+				margin: 0; 
+				padding: 0;
+				min-height: 100vh;  
+			}
+			
+			.logo {
+				position: absolute;
+				top: 20px;
+				left: 20px;
+				border: 2px solid black;
+				padding: 10px;
+				width: 60px;
+				height: 40px;
+			}
+			
+			.titre-principal {
+				text-align: center;
+				margin-top: 50px;
+				border: 2px solid black;
+				padding: 10px;
+				width: 200px;
+				margin-left: auto;
+				margin-right: auto;
+				background-color: white;
+			}
+			
+			.boutons {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin-top: 100px;
+			}
+			
+			.btn {
+				border: 2px solid black;
+				padding: 15px;
+				width: 300px;
+				margin: 10px;
+				text-align: center;
+				font-size: 24px;
+				cursor: pointer;
+			}
+		</style>
 	</head>
-
-
-
 	<body>
+		<div class="logo">Logo</div>
 		<h1 class="titre-principal">Morpion2000</h1>
-
-
-
-
-
-
+		
+		<div class="boutons">
+			<div class="btn">ONLINE</div>
+			<div class="btn">ORDINATEUR</div>
+		</div>
 	</body>
-
 </html>
