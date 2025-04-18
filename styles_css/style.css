@@ -1,0 +1,110 @@
+/* 
+Page de style pour le premier site en html/css.
+NSI Camus 
+*/
+
+ 
+html{ 
+    font-size: 20px; /* taille de référence des fontes */
+}
+
+header{
+    height: 200px; /* on impose la hauteur du header pour la photo */
+	background-color:#2F2F2F;
+    background-image: url('../ImagesDuSite/logo-manga-origine.png');
+	background-repeat: no-repeat;
+	background-position: right;
+    text-align:center;
+    color: white;
+    font-weight: bold;
+}
+
+body{
+    width: 80%; /* occupe 80% de la page en largeur */
+    margin: 0 auto; /* auto permet ici de centrer le body en laissant marge gauche et marge droite identiques */
+    background-color:#FFF;
+}
+h1{
+    font-size: 2rem; /* 2rem = 2 fois la taille de référence, soit 40px */
+    padding-top: 1rem;  
+}
+h2{
+    font-size: 1.5rem;
+    border: 1px solid #aaa;
+    text-align:center;
+    border-radius: 20px;
+}
+p#eleve{
+    font-size: 1.5rem;
+}
+.lien{
+	text-align:center;
+    font-size: 1.5rem;
+    background-color:black;
+    border-radius: 25px;
+    padding: 5px;
+}
+.lien2{
+	text-align:center;
+    font-size: 1.5rem;
+    background-color:#2F2F2F;
+    border-radius: 30px;
+    padding: 10px;
+}
+img{
+	width: 250px;
+	background-repeat: no-repeat;
+	background-position: center;
+	object-fit: contain;
+}	
+footer{
+    text-align:center;
+    margin: 2rem;
+}
+footer a{
+	text-decoration: none;
+    background-color: gray;
+    color: black;
+    border-radius: 50px;
+    padding: 8px;
+}
+
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+.image {
+  flex: 1;
+  max-width: 100%;
+  height: auto;
+}
+.texte {
+  flex: 2;
+  padding: 0 20px;
+} 
+
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+.one {
+  grid-column: 1 / 4;
+  grid-row: 1;
+}
+.two {
+  grid-column: 1;
+  grid-row: 2 / 5;
+}
+.three {
+  grid-column: 2;
+  grid-row: 2 / 5;
+}
+.four {
+  grid-column: 3;
+  grid-row: 2/5;
+}
