@@ -1,0 +1,16 @@
+body {
+    background-image: url("../cosmetics/font.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0; 
+    padding: 0;
+    min-height: 100vh;  
+}
+
+a{
+    font-family: "Rowdies", sans-serif;
+    text-decoration: none;
+    color: black;  
+}
+
