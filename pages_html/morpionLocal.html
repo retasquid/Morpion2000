@@ -1,28 +1,37 @@
 <!DOCTYPE html>
 <html lang="fr">
-	<head>
-		<meta charset="utf-8"/>
-		<title>Morpion local</title>
-		<link rel="stylesheet" href="../styles_css/morpionLocal.css">
-		<link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
-		<script src="../scripts/morpionLocal.js" defer></script>
-	</head>
-	<body>
-        <div id="profil">
-            <img src="../cosmetics/homme.png" id="profileImg" ></img>
-            <h3 id="pseudo">name</h3>
-            <img src="../cosmetics/homme.png" id="profileInv" ></img>
-            <h3>invité</h3>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles_css/morpionLocal.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="../scripts/morpionLocal.js" defer></script>
+    <title>Morpion local</title>
+</head>
+<body>
+    <h1>Jeu de Morpion</h1>
+    <div id="profil">
+        <img src="../cosmetics/homme.png" id="profileImg" ></img>
+        <h3 id="pseudo">name</h3>
+        <img src="../cosmetics/homme.png" id="profileInv" ></img>
+        <h3>invité</h3>
+    </div>
+    <div class="game-container">
+        <div class="status" id="status">C'est au tour de X</div>
+        
+        <div class="board" id="board">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
         </div>
-
-        <div id="select">
-            <img src="../cosmetics/cross.png" id="croix" ></img>
-            <img src="../cosmetics/circle.png" id="cercle" ></img>
-        </div>
-
-        <img src="../cosmetics/board.png" id="plateau" ></img>
-
-        <h2>score <span id="pseudo2">name</span> : <span id="scoreJ1">0</span> - <span>invité</span> : <span id="scoreJ2">0</span></h2>
-
-	</body>
+        
+        <button id="reset-button">Recommencer</button>
+    </div>
+</body>
 </html>

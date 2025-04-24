@@ -3,14 +3,79 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    margin: 0; 
-    padding: 0;
-    min-height: 100vh;  
-}
-
-a{
     font-family: "Rowdies", sans-serif;
-    text-decoration: none;
-    color: black;  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
 }
 
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.status {
+    margin: 20px 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #444;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    background-color: #333;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    font-size: 48px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+.cell:hover {
+    background-color: #eaeaea;
+}
+
+.x {
+    color: #e74c3c;
+}
+
+.o {
+    color: #3498db;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
