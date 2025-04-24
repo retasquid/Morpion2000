@@ -79,3 +79,25 @@ button {
 button:hover {
     background-color: #45a049;
 }
+#profil {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    margin-bottom: 30px;
+}
+
+.joueur {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#profileImg,
+#profileInv {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #555;
+}
