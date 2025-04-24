@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const cells = document.querySelectorAll('.cell');
     const statusDisplay = document.getElementById('status');
     const resetButton = document.getElementById('reset-button');
+	const userName = localStorage.getItem('userName');
+	const imageUrl = localStorage.getItem('profileImage');
     
     let currentPlayer = 'X';
     let gameState = ['', '', '', '', '', '', '', '', ''];
@@ -13,7 +15,21 @@ document.addEventListener('DOMContentLoaded', () => {
         [0, 3, 6], [1, 4, 7], [2, 5, 8], // Colonnes
         [0, 4, 8], [2, 4, 6]             // Diagonales
     ];
-    
+	
+	if (imageUrl) {
+        const profileImg = document.getElementById('profileImg');
+        if (profileImg) {
+            profileImg.src = imageUrl;
+        }
+    }
+	
+    if (userName) {
+        const pseudoElem = document.getElementById('pseudo');
+        if (pseudoElem) {
+            pseudoElem.textContent = userName;
+        }
+    }
+	
     // Messages d'état du jeu
     const winMessage = () => `Le joueur ${currentPlayer} a gagné!`;
     const drawMessage = () => `Match nul!`;
