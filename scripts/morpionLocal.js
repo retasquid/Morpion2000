@@ -9,7 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentPlayer = 'X';
     let gameState = ['', '', '', '', '', '', '', '', ''];
     let gameActive = true;
-    
+    let scoreX = 0;
+	let scoreO = 0;
+	const scoreXDisplay = document.getElementById('scoreJoueur1');
+	const scoreODisplay = document.getElementById('scoreJoueur2');
     const winningConditions = [
         [0, 1, 2], [3, 4, 5], [6, 7, 8], // Lignes
         [0, 3, 6], [1, 4, 7], [2, 5, 8], // Colonnes
@@ -62,55 +65,88 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     function handleResultValidation() {
-        let roundWon = false;
-        
-        // Vérifier les conditions de victoire
-        for (let i = 0; i < winningConditions.length; i++) {
-            const [a, b, c] = winningConditions[i];
-            const condition = gameState[a] !== '' && 
-                            gameState[a] === gameState[b] && 
-                            gameState[b] === gameState[c];
-            
-            if (condition) {
-                roundWon = true;
-                break;
-            }
-        }
-        
-        // Si victoire, afficher le gagnant et terminer le jeu
-        if (roundWon) {
-            statusDisplay.textContent = winMessage();
-            gameActive = false;
-            return;
-        }
-        
-        // Vérifier s'il y a match nul
-        let roundDraw = !gameState.includes('');
-        if (roundDraw) {
-            statusDisplay.textContent = drawMessage();
-            gameActive = false;
-            return;
-        }
-        
-        // Changer de joueur
-        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-        statusDisplay.textContent = currentPlayerTurn();
-    }
+		let roundWon = false;
+
+		for (let i = 0; i < winningConditions.length; i++) {
+			const [a, b, c] = winningConditions[i];
+			const condition = gameState[a] !== '' &&
+							  gameState[a] === gameState[b] &&
+							  gameState[b] === gameState[c];
+			
+			if (condition) {
+				roundWon = true;
+				break;
+			}
+		}
+
+		if (roundWon) {
+			statusDisplay.textContent = winMessage();
+			updateScore(currentPlayer);
+			return;
+		}
+
+		let roundDraw = !gameState.includes('');
+		if (roundDraw) {
+			statusDisplay.textContent = drawMessage();
+			resetRound();
+			return;
+		}
+
+		currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+		statusDisplay.textContent = currentPlayerTurn();
+	}
     
     function handleRestartGame() {
-        gameActive = true;
-        currentPlayer = 'X';
-        gameState = ['', '', '', '', '', '', '', '', ''];
-        statusDisplay.textContent = currentPlayerTurn();
-        
-        // Réinitialiser les cellules
-        cells.forEach(cell => {
-            cell.textContent = '';
-            cell.classList.remove('x');
-            cell.classList.remove('o');
-        });
-    }
-    
+		scoreX = 0;
+		scoreO = 0;
+		scoreXDisplay.textContent = "Joueur 1 : 0";
+		scoreODisplay.textContent = "Invité : 0";
+		gameActive = true;
+		currentPlayer = 'X';
+		gameState = ['', '', '', '', '', '', '', '', ''];
+		statusDisplay.textContent = currentPlayerTurn();
+		cells.forEach(cell => {
+			cell.textContent = '';
+			cell.classList.remove('x');
+			cell.classList.remove('o');
+		});
+		document.getElementById('reset-button').style.display = 'none'; // cacher le bouton reset jusqu’à la fin
+	}
+	
+    function updateScore(winner) {
+		if (winner === 'X') {
+			scoreX++;
+			scoreXDisplay.textContent = `Joueur 1 : ${scoreX}`;
+		} else {
+			scoreO++;
+			scoreODisplay.textContent = `Invité : ${scoreO}`;
+		}
+
+		if (scoreX === 3 || scoreO === 3) {
+			gameActive = false;
+			if (scoreX === 3) {
+				statusDisplay.textContent = "Joueur 1 a gagné la partie ! 🏆";
+			} else {
+				statusDisplay.textContent = "Invité a gagné la partie ! 🏆";
+			}
+			document.getElementById('reset-button').style.display = 'block'; // Montrer bouton
+		} else {
+			resetRound(); // sinon continuer avec une autre manche
+		}
+	}
+	
+	function resetRound() {
+		gameState = ['', '', '', '', '', '', '', '', ''];
+		cells.forEach(cell => {
+			cell.textContent = '';
+			cell.classList.remove('x');
+			cell.classList.remove('o');
+		});
+		currentPlayer = 'X';
+		statusDisplay.textContent = currentPlayerTurn();
+	}
+	
+
     // Ajouter les événements
     cells.forEach(cell => {
         cell.addEventListener('click', handleCellClick);
