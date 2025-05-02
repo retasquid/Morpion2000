@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles_css/morpionOrdi.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="../scripts/morpionOrdi.js" defer></script>
+    <title>Morpion contre IA</title>
+</head>
+<body>
+    <h1>Jeu de Morpion</h1>
+    <div id="profil">
+        <div class="joueur" id="joueur1">
+            <img src="../cosmetics/homme0.png" id="profileImg" alt="Joueur">
+            <h3 id="pseudo">Joueur</h3>
+        </div>
+        <div class="joueur" id="joueur2">
+            <img src="../cosmetics/robot.png" id="profileInv" alt="Robot">
+            <h3>Robot</h3>
+        </div>
+    </div>
+    
+    <div id="scoreboard">
+        <h2>Score</h2>
+        <p id="scoreJoueur1">Joueur : 0</p>
+        <p id="scoreJoueur2">Robot : 0</p>
+    </div>
+    
+    <div class="difficulty-selector">
+        <select id="difficulty">
+            <option value="facile">Facile</option>
+            <option value="moyen" selected>Moyen</option>
+            <option value="difficile">Difficile</option>
+        </select>
+    </div>
+    
+    <div id="endMessage" style="display:none;">
+        <h1 id="winner"></h1>
+        <button id="restartGame">Rejouer</button>
+    </div>
+    
+    <div class="game-container">
+        <div class="status" id="status">C'est votre tour (X)</div>
+        
+        <div class="board" id="board">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+        </div>
+        
+        <button id="reset-button">Recommencer</button>
+    </div>
+</body>
+</html>

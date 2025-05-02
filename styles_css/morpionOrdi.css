@@ -1,0 +1,181 @@
+body {
+    background-image: url("../cosmetics/font.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: "Rowdies", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7);
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.status {
+    margin: 20px 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #444;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    background-color: #333;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    font-size: 48px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+.cell:hover {
+    background-color: #eaeaea;
+}
+
+.x {
+    color: #e74c3c;
+}
+
+.o {
+    color: #3498db;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: "Rowdies", sans-serif;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#profil {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 400px;
+    padding: 0 40px;
+    margin-bottom: 30px;
+}
+
+.joueur {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#profileImg,
+#profileInv {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #555;
+}
+
+.joueur h3 {
+    margin: 10px 0 0 0;
+    color: #333;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+}
+
+#scoreboard {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#scoreboard h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#scoreboard p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #444;
+}
+
+#endMessage {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 100;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+#endMessage h1 {
+    color: white;
+    margin-bottom: 20px;
+    text-shadow: none;
+}
+
+#restartGame {
+    background-color: #3498db;
+}
+
+#restartGame:hover {
+    background-color: #2980b9;
+}
+
+.difficulty-selector {
+    margin-bottom: 20px;
+}
+
+.difficulty-selector select {
+    padding: 8px 12px;
+    font-family: "Rowdies", sans-serif;
+    border-radius: 5px;
+    border: none;
+    background-color: white;
+    color: #333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
